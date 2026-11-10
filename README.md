@@ -32,13 +32,7 @@ cd ruota-della-sfortuna
 | `style.css` | Stile e layout responsive |
 | `script.js` | Logica dell'applicazione, disegno della ruota e animazione |
 | `favicon.svg` | Icona della scheda del browser |
-| `.github/workflows/pages.yml` | Pubblicazione automatica su GitHub Pages |
-
-## Pubblicazione su GitHub Pages
-
-1. Nel repository vai su **Settings → Pages**.
-2. In **Build and deployment → Source** scegli **GitHub Actions**.
-3. A ogni push sul branch `main` il sito viene pubblicato automaticamente.
+| `.github/workflows/pages.yml` | Pubblicazione automatica su GitHub Pages | 
 
 ## Licenza
 
