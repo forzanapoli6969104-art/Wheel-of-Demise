@@ -5,6 +5,8 @@
 
 Una ruota della fortuna personalizzabile, interamente in italiano, che funziona direttamente nel browser: nessun backend, nessuna installazione, nessuna dipendenza.
 
+**Demo online:** `https://TUO-USERNAME.github.io/ruota-della-sfortuna/`
+
 ## Funzionalità
 
 - Aggiunta, modifica e rimozione delle voci (nomi, numeri, parole, caratteri accentati).
@@ -32,8 +34,8 @@ cd ruota-della-sfortuna
 | `style.css` | Stile e layout responsive |
 | `script.js` | Logica dell'applicazione, disegno della ruota e animazione |
 | `favicon.svg` | Icona della scheda del browser |
-| `.github/workflows/pages.yml` | Pubblicazione automatica su GitHub Pages | 
+| `.github/workflows/pages.yml` | Pubblicazione automatica su GitHub Pages |
 
 ## Licenza
 
-Distribuito con BSD 2-Clause License. Vedi il file [LICENSE](LICENSE).
+Distribuito con licenza MIT. Vedi il file [LICENSE](LICENSE).
