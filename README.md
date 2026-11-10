@@ -42,4 +42,4 @@ cd ruota-della-sfortuna
 
 ## Licenza
 
-Distribuito con licenza MIT. Vedi il file [LICENSE](LICENSE).
+Distribuito con BSD 2-Clause License. Vedi il file [LICENSE](LICENSE).
