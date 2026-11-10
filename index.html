@@ -1,1 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ruota della Sfortuna</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Ruota della Sfortuna</h1>
+    <p>Aggiungi le tue voci, gira la ruota e lascia decidere al caso.</p>
+  </header>
 
+  <main class="layout">
+    <section class="wheel-section" aria-label="Ruota">
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" role="img" aria-label="Ruota con le voci inserite"></canvas>
+      </div>
+
+      <button id="spin-btn" class="btn btn-primary btn-large" type="button">Gira la ruota</button>
+
+      <div class="result" aria-live="polite">
+        <p class="result-label">Risultato</p>
+        <p id="result-value" class="result-value">—</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="Elenco voci">
+      <h2>Voci</h2>
+
+      <form id="add-form" class="add-form" autocomplete="off">
+        <input id="entry-input" type="text" maxlength="40" placeholder="Scrivi una voce…" aria-label="Nuova voce">
+        <button id="add-btn" class="btn btn-primary" type="submit">Aggiungi</button>
+      </form>
+      <p id="form-message" class="form-message" role="alert"></p>
+
+      <ul id="entry-list" class="entry-list"></ul>
+      <p id="empty-message" class="empty-message" hidden>Nessuna voce. Aggiungine almeno una per far girare la ruota.</p>
+
+      <div class="panel-actions">
+        <button id="clear-btn" class="btn btn-secondary" type="button">Svuota lista</button>
+        <button id="reset-btn" class="btn btn-secondary" type="button">Ripristina tutto</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="rig-dialog" class="dialog" aria-labelledby="rig-title">
+    <div class="dialog-body">
+      <h2 id="rig-title">Impostazioni avanzate</h2>
+      <p class="dialog-hint">Più alto è il valore, più è probabile che la voce venga estratta. I valori vengono normalizzati automaticamente.</p>
+
+      <div id="rig-list" class="rig-list"></div>
+      <p id="rig-empty" class="empty-message" hidden>Non ci sono voci da configurare.</p>
+      <p id="rig-error" class="form-message" role="alert"></p>
+
+      <div class="dialog-actions">
+        <button id="rig-reset" class="btn btn-secondary" type="button">Ripristina predefiniti</button>
+        <button id="rig-ok" class="btn btn-primary" type="button">OK</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
