@@ -521,20 +521,22 @@
     renderRigList();
   }
 
-  // ---------- Scorciatoia segreta ----------
+    // ---------- Scorciatoia segreta ----------
   let keyBuffer = '';
   let keyBufferTimer = null;
   let swallowSpaceKeyup = false;
 
-  function isTypingTarget(el) {
-    if (!el) return false;
+  // Campi in cui la frase non deve mai attivarsi (modifica voce, pannello segreto).
+  // Il campo "nuova voce" è escluso da questo elenco: lì la frase funziona.
+  function isBlockedTarget(el) {
+    if (!el || el === addInput) return false;
     return el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' ||
            el.tagName === 'SELECT' || el.isContentEditable;
   }
 
   document.addEventListener('keydown', (e) => {
     if (e.ctrlKey || e.metaKey || e.altKey || e.isComposing) return;
-    if (isTypingTarget(e.target) || rigDialog.open || state.spinning) {
+    if (isBlockedTarget(e.target) || rigDialog.open || state.spinning) {
       keyBuffer = '';
       return;
     }
@@ -546,13 +548,18 @@
     keyBufferTimer = setTimeout(() => { keyBuffer = ''; }, SECRET_TIMEOUT_MS);
 
     // Se un pulsante ha il focus, lo spazio della frase non deve "premerlo"
-    if (ch === ' ' && keyBuffer.endsWith('rig ')) {
+    if (ch === ' ' && keyBuffer.endsWith('rig ') && e.target !== addInput) {
       e.preventDefault();
       swallowSpaceKeyup = true;
     }
 
     if (keyBuffer === SECRET_PHRASE) {
       keyBuffer = '';
+      e.preventDefault();
+      // Se si stava scrivendo nel campo "nuova voce", toglie "rig i" già digitato
+      if (e.target === addInput && addInput.value.toLowerCase().endsWith('rig i')) {
+        addInput.value = addInput.value.slice(0, -5);
+      }
       openRigDialog();
     }
   });
