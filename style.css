@@ -1,13 +1,11 @@
 :root {
-  --bg: #f5f6fa;
-  --surface: #ffffff;
-  --text: #1f2430;
-  --muted: #6b7280;
-  --accent: #3b5bdb;
-  --accent-dark: #2f4ac0;
-  --border: #e2e5ee;
-  --danger: #c92a2a;
-  --radius: 12px;
+  --bg: #f4f1ea;
+  --surface: #fffdf8;
+  --text: #222222;
+  --muted: #706b61;
+  --border: #d6d0c3;
+  --accent: #222222;
+  --danger: #a32d2d;
 }
 
 * { box-sizing: border-box; }
@@ -15,41 +13,47 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.5;
 }
 
+h1, h2 { line-height: 1.2; }
+
+/* Intestazione */
 .site-header {
-  text-align: center;
-  padding: 2rem 1rem 0.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 0;
 }
 
 .site-header h1 {
-  margin: 0 0 0.25rem;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0;
+  font-size: 1.6rem;
 }
 
 .site-header p {
-  margin: 0;
+  margin: 0.25rem 0 0;
   color: var(--muted);
 }
 
+/* Layout */
 .layout {
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem 1rem 2rem;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: start;
 }
 
 @media (max-width: 800px) {
-  .layout { grid-template-columns: 1fr; }
+  .layout { grid-template-columns: 1fr; gap: 1.5rem; }
 }
 
-/* Wheel */
+/* Ruota */
 .wheel-section {
   display: flex;
   flex-direction: column;
@@ -71,52 +75,48 @@ body {
 
 .pointer {
   position: absolute;
-  top: -6px;
+  top: -4px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 14px solid transparent;
-  border-right: 14px solid transparent;
-  border-top: 28px solid var(--text);
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 26px solid var(--text);
   z-index: 2;
 }
 
 .result {
   width: min(100%, 460px);
   text-align: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--border);
 }
 
 .result-label {
   margin: 0;
   font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--muted);
 }
 
 .result-value {
-  margin: 0.15rem 0 0;
-  font-size: 1.75rem;
+  margin: 0.1rem 0 0;
+  font-size: 1.8rem;
   font-weight: 700;
   overflow-wrap: anywhere;
 }
 
-/* Panel */
+/* Pannello voci */
 .panel {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem;
+  border-radius: 4px;
+  padding: 1rem;
 }
 
 .panel h2 {
-  margin: 0 0 1rem;
-  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
 }
 
 .add-form {
@@ -128,23 +128,23 @@ body {
 .entry-item input {
   flex: 1;
   min-width: 0;
-  padding: 0.55rem 0.75rem;
+  padding: 0.45rem 0.6rem;
   font: inherit;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: #fff;
   color: var(--text);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 4px;
 }
 
 input:focus-visible,
 .btn:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--text);
   outline-offset: 1px;
 }
 
 .form-message {
   min-height: 1.4rem;
-  margin: 0.4rem 0 0.2rem;
+  margin: 0.35rem 0 0.25rem;
   font-size: 0.9rem;
   color: var(--danger);
 }
@@ -161,7 +161,7 @@ input:focus-visible,
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.45rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -169,9 +169,8 @@ input:focus-visible,
 
 .swatch {
   flex: none;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
 }
 
 .entry-label {
@@ -181,9 +180,9 @@ input:focus-visible,
 }
 
 .empty-message {
-  color: var(--muted);
-  font-size: 0.95rem;
   margin: 0.75rem 0;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .panel-actions {
@@ -191,68 +190,72 @@ input:focus-visible,
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
-  padding-top: 1rem;
+  padding-top: 0.75rem;
   border-top: 1px solid var(--border);
 }
 
-/* Buttons */
+/* Pulsanti */
 .btn {
   font: inherit;
-  font-weight: 600;
-  padding: 0.5rem 0.9rem;
-  border-radius: 8px;
-  border: 1px solid transparent;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--text);
   cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s;
 }
+
+.btn:hover:not(:disabled) { background: #ece8dd; }
 
 .btn-primary {
   background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
 }
-.btn-primary:hover:not(:disabled) { background: var(--accent-dark); }
 
-.btn-secondary {
-  background: #fff;
-  color: var(--text);
-  border-color: var(--border);
-}
-.btn-secondary:hover:not(:disabled) { background: #f0f2f8; }
+.btn-primary:hover:not(:disabled) { background: #444444; }
+
+.btn-secondary { background: #fff; }
 
 .btn-danger { color: var(--danger); }
 
 .btn-small {
-  padding: 0.3rem 0.6rem;
+  padding: 0.2rem 0.55rem;
   font-size: 0.85rem;
 }
 
 .btn-large {
-  font-size: 1.15rem;
-  padding: 0.8rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 2.5rem;
 }
 
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-/* Dialog */
+/* Finestra impostazioni */
 .dialog {
-  width: min(92vw, 480px);
+  width: min(92vw, 460px);
   padding: 0;
-  border: none;
-  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--surface);
   color: var(--text);
 }
 
-.dialog::backdrop { background: rgba(20, 24, 35, 0.5); }
+.dialog::backdrop { background: rgba(0, 0, 0, 0.45); }
 
-.dialog-body { padding: 1.25rem; }
+.dialog-body { padding: 1rem; }
 
-.dialog-body h2 { margin: 0 0 0.25rem; font-size: 1.2rem; }
+.dialog-body h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+}
 
 .dialog-hint {
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
   font-size: 0.9rem;
   color: var(--muted);
 }
@@ -266,7 +269,7 @@ input:focus-visible,
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 0;
+  padding: 0.35rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -278,11 +281,12 @@ input:focus-visible,
 
 .rig-row input {
   width: 4.5rem;
-  padding: 0.35rem 0.4rem;
+  padding: 0.3rem 0.4rem;
   font: inherit;
   text-align: center;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 4px;
+  background: #fff;
 }
 
 .rig-percent {
