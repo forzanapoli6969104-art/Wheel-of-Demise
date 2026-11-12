@@ -1,0 +1,36 @@
+{
+  "name": "ruota-della-sfortuna",
+  "version": "1.0.0",
+  "description": "Ruota della fortuna personalizzabile",
+  "main": "main.js",
+  "author": "Federico",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "it.ruotadellasfortuna.app",
+    "productName": "Ruota della Sfortuna",
+    "files": [
+      "index.html",
+      "style.css",
+      "script.js",
+      "favicon.svg",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Ruota-della-Sfortuna-Setup-${version}.exe"
+    }
+  }
+}
