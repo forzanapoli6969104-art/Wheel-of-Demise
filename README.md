@@ -5,7 +5,7 @@
 
 Una ruota della fortuna personalizzabile, interamente in italiano, che funziona direttamente nel browser: nessun backend, nessuna installazione, nessuna dipendenza.
 
-**Demo online:** `https://TUO-USERNAME.github.io/ruota-della-sfortuna/`
+**Demo online:** `https://forzanapoli6969104-art.github.io/Wheel-of-Demise/`
 
 ## Funzionalità
 
